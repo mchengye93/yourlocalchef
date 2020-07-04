@@ -20,7 +20,10 @@ import foods.api_views
 
 urlpatterns = [
     path('api/v1/users/', foods.api_views.UserList.as_view()),
+    path('api/v1/users/new', foods.api_views.UserCreate.as_view()),
     path('api/v1/fooditems/', foods.api_views.FoodItemList.as_view()),
+    path('api/v1/fooditems/new', foods.api_views.FoodItemCreate.as_view()),
+    path('api/v1/fooditems/<int:id>/', foods.api_views.FoodItemRetrieveUpdateDestroy.as_view()),
     path('admin/', admin.site.urls),
     path('foods', foods.views.homepage, name='homepage'),
 ]
