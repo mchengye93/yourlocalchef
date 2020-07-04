@@ -1,0 +1,17 @@
+<h1>All Food Items Available</h1>
+
+
+
+{% for item in fooditems.all %}
+<div>
+        <div>
+                Name: {{item.name}}  
+        </div>
+        <div>
+                Description: {{item.description}}
+        </div>
+        <div>
+                Price: {{item.price}}
+        </div>
+</div>
+{% endfor%}
