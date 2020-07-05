@@ -1,16 +1,19 @@
 from rest_framework import serializers
 from foods.models import User,FoodItem,SaleHistory
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id','name','email','location','description','joined')
-
 class FoodItemSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = FoodItem
-        fields = ('id','name','description','price','quantity','sale_start','sale_end')
+        fields = ('user','id','name','description','price','quantity','sale_start','sale_end')
     
+class UserSerializer(serializers.ModelSerializer):
+    fooditems = FoodItemSerializer(many=True, read_only=True)
+    class Meta:
+        model = User
+        fields = ('id','name','email','location','description','joined','fooditems')
+
+
     #Adding extra fields to API
     # def to_representation(self,instance):
     #         data=super().to_representation(instance)
