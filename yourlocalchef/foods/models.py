@@ -15,13 +15,13 @@ class User(models.Model):
         location = models.CharField(max_length=50,choices=cities)
         description = models.TextField(blank=True)
         joined= models.DateTimeField(default=datetime.now, blank=True)
-        image= models.ImageField(upload_to = 'uploads/',blank=True)
+        image= models.ImageField(upload_to = 'images/' ,blank=True)
 
 class FoodItem(models.Model):
         user = models.ForeignKey(User,related_name='foodItems', on_delete = models.CASCADE)
         name= models.CharField(max_length=50)
         description = models.TextField(blank=True)
-        image= models.ImageField(upload_to = 'uploads/',blank=True)
+        image= models.ImageField(upload_to = 'images/',blank=True)
         price = models.DecimalField(max_digits=5, decimal_places=2)
         quantity = models.IntegerField(default=0)
         sale_start=models.DateTimeField(default=datetime.now)
