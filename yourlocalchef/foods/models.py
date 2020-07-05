@@ -18,7 +18,7 @@ class User(models.Model):
         image= models.ImageField(upload_to = 'uploads/',blank=True)
 
 class FoodItem(models.Model):
-        user = models.ForeignKey(User, on_delete = models.CASCADE)
+        user = models.ForeignKey(User,related_name='foodItems', on_delete = models.CASCADE)
         name= models.CharField(max_length=50)
         description = models.TextField(blank=True)
         image= models.ImageField(upload_to = 'uploads/',blank=True)
