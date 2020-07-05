@@ -13,5 +13,11 @@ import ReactDOM from 'react-dom';
 // Import the App component which is the top level component of our app
 import App from './components/App.jsx';
 
+import {Provider} from 'react-redux';
+
+import {configureStore} from './store';
+
 // Attach App to the DOM, replacing the div with ID app
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<Provider store={configureStore()}> 
+<App/>
+</Provider>, document.getElementById('app'));
