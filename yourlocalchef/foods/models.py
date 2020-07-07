@@ -16,6 +16,7 @@ class User(models.Model):
         description = models.TextField(blank=True)
         joined= models.DateTimeField(default=datetime.now, blank=True)
         image= models.ImageField(upload_to = 'images/' ,blank=True)
+        
 
 class FoodItem(models.Model):
         user = models.ForeignKey(User,related_name='foodItems', on_delete = models.CASCADE)

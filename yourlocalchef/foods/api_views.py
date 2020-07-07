@@ -7,7 +7,7 @@ from foods.serializers import UserSerializer,FoodItemSerializer
 from foods.models import User,FoodItem,SaleHistory
 
 class DefaultPagination(LimitOffsetPagination):
-    default_limit = 10
+    default_limit = 20
     max_limit=100
 
 

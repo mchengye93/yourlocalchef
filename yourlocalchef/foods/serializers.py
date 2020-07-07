@@ -6,7 +6,7 @@ class FoodItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = FoodItem
         fields = ('user','id','name','description','image', 'price','quantity','sale_start','sale_end')
-    
+
 class UserSerializer(serializers.ModelSerializer):
     
     foodItems = FoodItemSerializer(many=True, read_only=True)
@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id','name','email','location','image','description','joined','foodItems')
-
+        read_only_fields = ('joined',)
 
 
     #Adding extra fields to API
