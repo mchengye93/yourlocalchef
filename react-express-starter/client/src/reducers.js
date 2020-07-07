@@ -1,17 +1,17 @@
-import { SEARCH_FOOD, CREATE_FOOD } from './action.js';
+import { SEARCH_FOOD_ITEM, CREATE_FOOD_ITEM } from './action.js';
 
-export const foods = (state= [],action) => {
+export const foodItems = (state= [],action) => {
     const {type,payload} = action;
     switch (type) {
-        case SEARCH_FOOD: {
+        case SEARCH_FOOD_ITEM: {
             return state
         }
-        case CREATE_FOOD: {
-            const {food} = payload;
-            const newFood = {
-                food
+        case CREATE_FOOD_ITEM: {
+            const {foodItem} = payload;
+            const newFoodItem = {
+                foodItem
             };
-            return state.concat(newFood);
+            return state.concat(newFoodItem);
         }
 
         default:

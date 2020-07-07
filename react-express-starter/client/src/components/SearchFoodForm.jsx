@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
+import { searchFoodItem } from '../action.js';
 
-const SearchFoodForm = () => {
+
+const SearchFoodForm = ({onSearchPressed}) => {
     
     const [inputValue,setInputValue] = useState('');
     return (
@@ -12,10 +15,19 @@ const SearchFoodForm = () => {
             placeholder="Search food"
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}/>
-            <button>Search</button>
+            <button onClick={()=> {
+                onSearchPressed(inputValue);
+                setInputValue('');
+            }}>Search</button>
         </form>
     </div>
     )
 }
 
+
+// const mapDispatchToProps = dispatch => ({
+//     onSearchPressed:() => dispatch(searchFoodItem())
+// });
+    
+// export default connect(null,mapDispatchToProps)(SearchFoodForm);
 export default SearchFoodForm;

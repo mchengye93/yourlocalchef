@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchFoodForm from './SearchFoodForm.jsx';
 import FoodItemList from './FoodItemList.jsx';
 import axios from 'axios';
+import CreateFoodForm from './CreateFoodForm.jsx';
 
 class App extends Component {
   
@@ -13,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://127.0.0.1:8000/api/v1/users/")
+    axios.get("http://127.0.0.1:8000/api/v1/fooditems/")
     .then(res => {
       console.log(res);
       this.setState({
@@ -31,6 +32,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <CreateFoodForm/>
         <SearchFoodForm/>
         <FoodItemList  foodItems={this.state.foodItems}/>
       </div>
